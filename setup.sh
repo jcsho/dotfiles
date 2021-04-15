@@ -1,6 +1,16 @@
 #/bin/sh
 
+# Install fonts for powerlevel10k
+export FONT_DIR="$HOME/.local/share/fonts/MesloLGS NF" && (
+  mkdir -p $FONT_DIR 
+  cd $FONT_DIR
+  curl "https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/MesloLGS%20NF%20{Regular,Bold,Italic,Bold%20Italic}.ttf" -O
+  prename -v 's/%20/ /g' *.ttf
+)
+
 # Setup programs from git
+echo ' Installing powerlevel10k'
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 echo 'Installing Fzf...'
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install --key-bindings --completion --no-update-rc --no-bash --no-fish
