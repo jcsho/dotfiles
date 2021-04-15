@@ -3,4 +3,13 @@
 	name = Justin Ho
 	email = justinho@jcsh.dev
 [commit]
-	gpgsign = true
+  gpgsign = true
+
+[core]
+  pager = delta
+
+[delta]
+  syntax-theme = Nord
+
+[interactive]
+  diffFilter = delta --color-only
