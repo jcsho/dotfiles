@@ -10,8 +10,12 @@ export FONT_DIR="$HOME/.local/share/fonts/MesloLGS NF" && (
 )
 
 # Setup programs from git
-echo ' Installing powerlevel10k'
+echo 'Installing powerlevel10k'
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+
+echo 'Installing zsh-autosuggestions and zsh-syntax-highlighting'
+git clone --depth 1 https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosuggestions
+git clone --depth 1 https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
 
 echo 'Installing Fzf...'
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
