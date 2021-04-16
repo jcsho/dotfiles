@@ -11,11 +11,14 @@ export FONT_DIR="$HOME/.local/share/fonts/MesloLGS NF" && (
 # Setup programs from git
 echo ' Installing powerlevel10k'
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+
 echo 'Installing Fzf...'
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install --key-bindings --completion --no-update-rc --no-bash --no-fish
+
 echo 'Installing Rust...'
-curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
+curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh -s -- -y --no-modify-path
+
 echo 'Installing Nvm...'
 export NVM_DIR="$HOME/.nvm" && (
   git clone https://github.com/nvm-sh/nvm.git "$NVM_DIR"
