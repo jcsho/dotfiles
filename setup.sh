@@ -2,10 +2,11 @@
 
 # Install fonts for powerlevel10k
 export FONT_DIR="$HOME/.local/share/fonts/MesloLGS NF" && (
-  mkdir -p $FONT_DIR 
-  cd $FONT_DIR
+  mkdir -p "$FONT_DIR"
+  cd "$FONT_DIR"
   curl "https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/MesloLGS%20NF%20{Regular,Bold,Italic,Bold%20Italic}.ttf" -O
   prename -v 's/%20/ /g' *.ttf
+  fc-cache -vf "$FONT_DIR"
 )
 
 # Setup programs from git
