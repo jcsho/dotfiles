@@ -42,12 +42,19 @@ _fzf_compgen_dir() {
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# rust
+[ -f ~/.cargo/env ] && source ~/.cargo/env
+
 bindkey '^ ' autosuggest-accept
 
+alias ld="exa -TL 2 --icons"
+alias ll="exa -alhF --icons"
+alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
 
