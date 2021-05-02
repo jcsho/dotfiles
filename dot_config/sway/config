@@ -1,0 +1,205 @@
+# ========== 
+# Variables
+# ========== 
+
+  # Font
+  font: MesloLGS NF
+  
+  # Super (Logo) key. Use Mod1 for Alt:
+  set $mod Mod4
+  
+  # Home row direction keys, vim style:
+  set $left h
+  set $down j
+  set $up k
+  set $right l
+  
+  # Terminal
+  set $term alacritty
+  
+  # Application Launcher
+  set $menu wofi --show=drun --insensitive --lines=8 --width=33% --prompt=""
+
+# ========== 
+# Shortcuts
+# ========== 
+
+  # Terminal
+  bindsym $mod+Return exec $term
+
+  # Close focused window
+  bindsym $mod+q kill
+
+  # Start launcher
+  bindsym $mod+space $menu
+
+  #Lock 
+  bindsym $mod+l exec swaylock -f -c 000000
+
+  # Reload config files
+  bindsym $mod+Shift+c reload
+
+  # Screenshot
+  bindsym $mod+p exec grimshot --notify save window
+  bindsym $mod+Shift+p exec grimshot --notify save area
+
+  # Web browser
+  bindsym $mod+i exec flatpak run org.mozilla.firefox
+
+# ========== 
+# Moving
+# ========== 
+  
+  # Move to the next or previous workspace:
+  bindsym $mod+Next workspace next_on_output --create
+  bindsym $mod+Prior workspace prev_on_output --create
+
+  # Move Focus
+  bindsym $mod+$left focus left
+  bindsym $mod+$down focus down
+  bindsym $mod+$up focus up
+  bindsym $mod+$right focus right
+  # Arrow keys
+  bindsym $mod+Left focus left
+  bindsym $mod+Down focus down
+  bindsym $mod+Up focus up
+  bindsym $mod+Right focus right
+
+  # Move focused window
+  bindsym $mod+Shift+$left move left
+	bindsym $mod+Shift+$down move down
+	bindsym $mod+Shift+$up move up
+	bindsym $mod+Shift+$right move right
+  # Arrow keys
+  bindsym $mod+Shift+Left move left
+	bindsym $mod+Shift+Down move down
+	bindsym $mod+Shift+Up move up
+	bindsym $mod+Shift+Right move right
+
+# ========== 
+# Workspaces
+# ========== 
+
+  # Switch to workspace:
+	bindsym $mod+1 workspace number 1
+	bindsym $mod+2 workspace number 2
+	bindsym $mod+3 workspace number 3
+	bindsym $mod+4 workspace number 4
+	bindsym $mod+5 workspace number 5
+	bindsym $mod+6 workspace number 6
+	bindsym $mod+7 workspace number 7
+	bindsym $mod+8 workspace number 8
+	bindsym $mod+9 workspace number 9
+	bindsym $mod+0 workspace number 10
+
+	# Move focused container to workspace:
+	bindsym $mod+Shift+1 move container to workspace number 1
+	bindsym $mod+Shift+2 move container to workspace number 2
+	bindsym $mod+Shift+3 move container to workspace number 3
+	bindsym $mod+Shift+4 move container to workspace number 4
+	bindsym $mod+Shift+5 move container to workspace number 5
+	bindsym $mod+Shift+6 move container to workspace number 6
+	bindsym $mod+Shift+7 move container to workspace number 7
+	bindsym $mod+Shift+8 move container to workspace number 8
+	bindsym $mod+Shift+9 move container to workspace number 9
+	bindsym $mod+Shift+0 move container to workspace number 10
+
+# ========== 
+# Layout
+# ========== 
+
+  # Window splitting
+  bindsym $mod+s splith
+  bindsym $mod+v splitv
+
+  # Layout style
+  bindsym $mod+b layout stacking
+  bindsym $mod+w layout tabbed
+  bindsym $mod+e layout toggle split
+
+  # Fullscreen
+  bindsym $mod+f fullscreen
+
+  # Toggle floating
+  bindsym $mod+Shift+space floating toggle
+
+  # Move focus to parent window
+  bindsym $mod+a focus parent
+
+# ========== 
+# Scratchpad
+# ========== 
+
+  # Move window to scratchpad
+  bindsym $mod+Shift+minus move scratchpad
+
+  # Show next scratchpad window
+  bindsym $mod+minus scratchpad show
+
+# ========== 
+# Resizing
+# ========== 
+
+  # Resize mode keybindings:
+	mode "resize" {
+	    bindsym $left resize shrink width 50px
+	    bindsym $down resize grow height 50px
+	    bindsym $up resize shrink height 50px
+	    bindsym $right resize grow width 50px
+
+	    # Ditto, with arrow keys:
+	    bindsym Left resize shrink width 50px
+	    bindsym Down resize grow height 50px
+	    bindsym Up resize shrink height 50px
+	    bindsym Right resize grow width 50px
+
+	    # Return to default mode:
+	    bindsym Return mode "default"
+	    bindsym Escape mode "default"
+      bindsym ctrl+[ mode "default"
+	}
+
+	# Enter resize mode:
+	bindsym $mod+r mode "resize"
+
+# ========== 
+# Panel
+# ========== 
+
+  # Waybar
+  bar {
+    swaybar_command waybar
+  }
+
+  include /etc/sway/config.d/*
+
+  # Mako (notifications)
+  exec mako
+  bindsym $mod+n exec "makoctl dismiss"
+  bindsym $mod+Shift+n exec "makoctl dismiss -a"
+
+# ========== 
+# Graphical
+# ========== 
+
+  #Gaps
+	gaps inner 7
+	smart_gaps on
+
+	#Borders:
+	default_border pixel 2 
+	smart_borders on
+
+	# Colors:
+	set $active #5294E2
+  set $unfocused	#FFFFFF
+	set $fg		#FFFFFF
+	set $bg		#383c4a
+	set $bar	#404552
+
+  # Window Border color		  border		backgr		text		    indicator
+	client.focused			      $active		$active		$fg		      $fg
+	client.focused_inactive		$bg     	$bg		    $unfocused	$fg
+	client.unfocused		      $bg     	$bg		    $unfocused	$fg
+	client.urgent			        $bg     	$bg		    $fg		      $fg
+
