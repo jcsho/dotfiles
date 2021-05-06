@@ -34,7 +34,7 @@
   bindsym $mod+space $menu
 
   #Lock 
-  bindsym $mod+Shift+l exec swaylock -f -c 000000
+  # bindsym $mod+Shift+l exec swaylock -f -c 000000
 
   # Reload config files
   bindsym $mod+Shift+c reload
