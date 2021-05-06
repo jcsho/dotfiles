@@ -156,7 +156,6 @@
 	    # Return to default mode:
 	    bindsym Return mode "default"
 	    bindsym Escape mode "default"
-      bindsym ctrl+[ mode "default"
 	}
 
 	# Enter resize mode:
